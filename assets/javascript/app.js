@@ -20,8 +20,17 @@ again */
 var correctAnswers;
 var incorrectAnswers;
 
-$(".btn").click(function firstQuestion() { 
-    
+$(".start").click(function firstQuestion() { 
+    var firstQuestion = "<div id='firstQuestion'>";
+    var row = "<div class='row'>";
+    var col1 = "<div class='col-12'>";
+    var title1 = "<h1>Question 1</h1>";
+    var question1 = "<p>Test test test</p>";
+    var questionForm1 = "<div class='form-check'> <input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' checked> <label class='form-check-label' for='exampleRadios1'>Answer 1</label>";
+    $("#mainMenu").css("display", "none");
+    $(".container").append(firstQuestion, row, col1, title1, question1, questionForm1);
+
+
 
 
 });
