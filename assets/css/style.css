@@ -10,7 +10,7 @@ body {
 
 .container {
     margin-top: 100px;
-    margin-bottom: 100px; 
+    margin-bottom: 100px;
     background-color: rgb(116, 116, 116);
     opacity: 0.9;
     padding: 50px;
@@ -37,4 +37,8 @@ p {
     font-style: italic;
     font-weight: bold;
     color: gold;
+}
+
+.btn {
+    margin-top: 20px;
 }
