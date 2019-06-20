@@ -10,10 +10,12 @@ body {
 
 .container {
     margin-top: 100px;
+    margin-bottom: 100px;
     background-color: rgb(116, 116, 116);
     opacity: 0.9;
     padding: 50px;
     color: white;
+    font-weight: 400;
     border: 2px solid goldenrod;
     border-style: ridge;
     border-radius: 50px;
@@ -26,7 +28,13 @@ body {
     font-family: 'ringbearermedium', Arial, sans-serif;
 }
 
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
 #quote {
     padding-top: 20px;
     font-style: italic;
+    font-weight: bold;
+    color: gold;
 }
