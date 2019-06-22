@@ -40,19 +40,109 @@ var qaBlock = {
     first: {
         question1: "Who is Gollum's brother?",
         answers: [
-            answer1 = "Deagol",
+            answer1 = "Deagol", //answer
             answer2 = "Grima",
             answer3 = "Merry",
             answer4 = "Smeagol",
         ]
     },
     second: {
-        question2: "blahblahblah",
+        question2: "At the beginning of 'Fellowship', how many rings are given to the elves?",
         answers: [
-            answer1 = "",
-            answer2 = "",
+            answer1 = "2",
+            answer2 = "3", //answer
+            answer3 = "4",
+            answer4 = "5",
+        ]
+    },
+    third: {
+        question3: "During his birthday speech, which of the following families is NOT mentioned by Bilbo?",
+        answers: [
+            answer1 = "The Bolgers",
+            answer2 = "The Boffins",
+            answer3 = "The Grubbs",
+            answer4 = "The Cottons", //answer
+        ]
+    },
+    fourth: {
+        question4: "Sam uses Sting to kill some Orcs. In which 'Lord Of The Rings' movie did that happen?",
+        answers: [
+            answer1 = "The Fellowship of the Ring",
+            answer2 = "The Two Towers",
+            answer3 = "Return of the King", //answer
+            answer4 = "The Hobbit",
+        ]
+    },
+    fifth: {
+        question5: "Who do we see arrive first for the council of Elrond?",
+        answers: [
+            answer1 = "Legolas",
+            answer2 = "Borimir", //answer
+            answer3 = "Gandalf",
+            answer4 = "Aragorn",
+        ]
+    },
+    sixth: {
+        question6: "A flock of black birds, spies of Saruman, fly over the Fellowship. What sort of birds are they?",
+        answers: [
+            answer1 = "Wargs",
+            answer2 = "Nazgul",
             answer3 = "",
-            answer4 = "",
+            answer4 = "Crebain", //answer
+        ]
+    },
+    seventh: {
+        question7: "Who is the Lord of the Eagles?",
+        answers: [
+            answer1 = "Gwaihir", //answer
+            answer2 = "Elrond",
+            answer3 = "Gandalf",
+            answer4 = "Landroval",
+        ]
+    },
+    eigth: {
+        question8: "Who does Aragorn say he is a friend of during his first meeting with Boromir?",
+        answers: [
+            answer1 = "Gandalf", //answer
+            answer2 = "Gondor",
+            answer3 = "Gimli",
+            answer4 = "Galadriel",
+        ]
+    },
+    ninth: {
+        question9: "Whose tomb do the Fellowship visit whilst in Moria?",
+        answers: [
+            answer1 = "Dwalin",
+            answer2 = "Kili",
+            answer3 = "Balin", //answer
+            answer4 = "Fili",
+        ]
+    },
+    tenth: {
+        question10: "Who is Sauron's master?",
+        answers: [
+            answer1 = "Morgoth", //answer
+            answer2 = "Eru",
+            answer3 = "Manwë",
+            answer4 = "Fëanor",
+        ]
+    },
+    eleventh: {
+        question11: "In all three movies, how many times do we see the One Ring worn on Frodo's finger?",
+        answers: [
+            answer1 = "2",
+            answer2 = "4", //answer
+            answer3 = "6",
+            answer4 = "8",
+        ]
+    },
+    twelfth: {
+        question12: "Which of the following does Bilbo NOT mention as being loved by Hobbits?",
+        answers: [
+            answer1 = "Peace",
+            answer2 = "Food",
+            answer3 = "All Things Growing",
+            answer4 = "Dancing", //answer
         ]
     },
 }
