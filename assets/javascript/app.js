@@ -40,5 +40,4 @@ $(".start").click(function firstQuestion() {
     $("#answer2").text("Merry");
     $("#answer3").text("Bilbo");
     $("#answer4").text("Deagol");
-    $(".container").append($("<button type='button' class='continue btn btn-success btn-lg btn-block'>Submit</button>"));
 });
