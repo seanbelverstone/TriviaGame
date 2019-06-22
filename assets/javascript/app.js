@@ -19,9 +19,21 @@ again */
 
 var correctAnswers = 0;
 var incorrectAnswers = 0;
-var question1 = "<p id='question'>First Question</p>";
 var row = "<div class='row'>";
 var col1 = "<div class='col-12'>";
+var count = 30;
+var counter = setInterval(timer, 1000);
+
+function timer()
+{
+  count=count-1;
+  if (count <= 0) {
+    clearInterval(counter);
+    $(".container").empty();
+    return;
+  }
+  $("#timer").text(count);
+}
 
 // Creating a JSON below for all of the answers. This will make it easy to access
 var qaBlock = {
@@ -53,10 +65,12 @@ var qaBlock = {
 
 
 $(".start").click(function firstQuestion() { 
-    var firstQuestion = "<div id='firstQuestion'>";
     var title1 = "<h1>Question 1</h1>";
+    var firstQuestion = "<div id='firstQuestion'>";
     $("#mainMenu").css("display", "none");
     $(".container").append(firstQuestion, row, col1, title1);
+    $(".container").append("<div id='timer'>");
+    timer();
     $(".container").append("<div id='question1'>" + qaBlock.first.question1 + "</div>");
     $(".container").append("<ul> <li>" + qaBlock.first.answers[0]);
     $(".container").append("<ul> <li>" + qaBlock.first.answers[1]);

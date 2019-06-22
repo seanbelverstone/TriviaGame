@@ -50,6 +50,7 @@ p {
 
 #question1 {
     font-size: 30pt;
+    padding-bottom: 20px;
 }
 
 li {
@@ -60,10 +61,17 @@ li {
 }
 
 li:hover {
-    border: solid goldenrod 2px;
+    background-color: goldenrod;
     border-radius: 50px;
 }
 
 li:active {
     background-color: rgb(53, 0, 0);
+}
+
+#timer {
+    font-size: 20pt;
+    color: red;
+    font-weight: bolder;
+    padding-bottom: 40px;
 }
