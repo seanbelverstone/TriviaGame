@@ -48,3 +48,11 @@ p {
 
 /* Below is the styling for appended elements from Javascript */
 
+#question {
+    font-size: 30pt;
+}
+
+#answer1, #answer2, #answer3, #answer4 {
+    font-size: 20pt;
+    
+}
