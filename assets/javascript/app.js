@@ -17,27 +17,50 @@ Also have rankings for how well you did, for example:
 A restart? button will be at the bottom of this page. When pressed it will start from the first question
 again */
 
-var correctAnswers;
-var incorrectAnswers;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
 var question1 = "<p id='question'>First Question</p>";
 var row = "<div class='row'>";
 var col1 = "<div class='col-12'>";
-var answers = [
-    answer1 = $("<a><div id='answer1'>Text1</div></a>"),
-    answer2 = $("<a><div id='answer2'>Text2</div></a>"),
-    answer3 = $("<a><div id='answer3'>Text3</div></a>"),
-    answer4 = $("<a><div id='answer4'>Text4</div></a>"),
-]
+
+// Creating a JSON below for all of the answers. This will make it easy to access
+var qaBlock = {
+    first: {
+        question1: "Who is Gollum's brother?",
+        answers: [
+            answer1 = "Deagol",
+            answer2 = "Grima",
+            answer3 = "Merry",
+            answer4 = "Smeagol",
+        ]
+    },
+    second: {
+        question2: "blahblahblah",
+        answers: [
+            answer1 = "",
+            answer2 = "",
+            answer3 = "",
+            answer4 = "",
+        ]
+    },
+}
+
+// function setAnswers() {
+//     for (var i = 0; i < Array.length; i++) {
+//         $("ul").append("<li>" + Array[i] + "</li>");
+//     }
+// }            trying to use a function to append array items instead of having to write it out manually
 
 
 $(".start").click(function firstQuestion() { 
     var firstQuestion = "<div id='firstQuestion'>";
     var title1 = "<h1>Question 1</h1>";
     $("#mainMenu").css("display", "none");
-    $(".container").append(firstQuestion, row, col1, title1, question1, answers);
-    $("#question").text("What is Gollum's hobbit name?");
-    $("#answer1").text("Smeagol");
-    $("#answer2").text("Merry");
-    $("#answer3").text("Bilbo");
-    $("#answer4").text("Deagol");
+    $(".container").append(firstQuestion, row, col1, title1);
+    $(".container").append("<div id='question1'>" + qaBlock.first.question1 + "</div>");
+    $(".container").append("<ul> <li>" + qaBlock.first.answers[0]);
+    $(".container").append("<ul> <li>" + qaBlock.first.answers[1]);
+    $(".container").append("<ul> <li>" + qaBlock.first.answers[2]);
+    $(".container").append("<ul> <li>" + qaBlock.first.answers[3]);
 });
+
