@@ -21,14 +21,15 @@ var correctAnswers = 0;
 var incorrectAnswers = 0;
 var row = "<div class='row'>";
 var col1 = "<div class='col-12'>";
+var triviaArea = "<div id='triviaArea'>";
 var count = 30;
 var counter = setInterval(timer, 1000);
 
-function timer()
-{
-  count=count-1;
-  if (count <= 0 || $("#incorrect") {
+function timer() {
+  count = count-1;
+  if (count <= 0) {
     clearInterval(counter);
+    $(".container").empty();
     
   }
   $("#timer").text(count);
@@ -164,29 +165,43 @@ var qaBlock = {
 //     }
 // }            trying to use a function to append array items instead of having to write it out manually
 
-$(".start").click(function go() { 
-    var triviaArea = "<div id='triviaArea'>";
+$(".start").click(function() { 
     var title1 = "<h1>Question 1</h1>";
     $("#mainMenu").css("display", "none");
     $(".container").append(triviaArea, row, col1, title1);
     $(".container").append("<div id='timer'>");
     timer();
     $(".container").append("<div id='question1'>" + qaBlock.first.question1 + "</div>");
-    $(".container").append("<ul> <li id='correct'>" + qaBlock.first.answers[0]);
-    $(".container").append("<ul> <li id='incorrect'>" + qaBlock.first.answers[1]);
-    $(".container").append("<ul> <li id='incorrect'>" + qaBlock.first.answers[2]);
-    $(".container").append("<ul> <li id='incorrect'>" + qaBlock.first.answers[3]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[3]);
 
+
+    $(".correct").click(function() {
+        winPage();
+    });
+
+    $(".incorrect").click(function() {
+        losePage();
+    })
 });
 
-$("#correct").click(function correct() {
-    $(".container").empty();
-})
 
+//win page function
 function winPage() {
+    $(".container").empty();
     var triviaArea = "<div id='triviaArea'>";
     var correct = "<h1>Correct!</h1>";
     $(".container").append(triviaArea, row, col1, correct);
     correctAnswers++;
+};
 
-}
+//lose page function
+function losePage() {
+    $(".container").empty();
+    var triviaArea = "<div id='triviaArea'>";
+    var incorrect = "<h1>That's wrong!</h1>";
+    $(".container").append(triviaArea, row, col1, incorrect);
+    incorrectAnswers++;
+};
