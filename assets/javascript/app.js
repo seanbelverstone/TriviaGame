@@ -46,6 +46,7 @@ var qaBlock = {
             answer4 = "Smeagol",
         ],
         correctText: "Gollum, or Smeagol as he was formerly known, had a brother called Deagol who he killed in order to obtain The One Ring.",
+        relatedGif: "<iframe src='https://giphy.com/embed/eKdAVlKkv1qSs' width='480' height='194' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
     },
     second: {
         question2: "At the beginning of 'Fellowship', how many rings are given to the elves?",
@@ -193,8 +194,9 @@ function winPage() {
     $(".container").empty();
     var triviaArea = "<div id='triviaArea'>";
     var correct = "<h1>Correct!</h1>";
-    $(".container").append(triviaArea, row, col1, correct);
+    $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, qaBlock.first.relatedGif);
     correctAnswers++;
+    clearInterval(counter);
 };
 
 //lose page function
@@ -204,4 +206,5 @@ function losePage() {
     var incorrect = "<h1>That's wrong!</h1>";
     $(".container").append(triviaArea, row, col1, incorrect);
     incorrectAnswers++;
+    clearInterval(counter);
 };
