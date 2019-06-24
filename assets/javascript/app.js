@@ -22,17 +22,21 @@ var incorrectAnswers = 0;
 var row = "<div class='row'>";
 var col1 = "<div class='col-12'>";
 var triviaArea = "<div id='triviaArea'>";
-var count = 30;
 var counter;
+var count = 30;
+var firstPage;
+
 
 function timer() {
-  count = count-1;
-  if (count <= 0) {
-    clearInterval(counter);
-    $(".container").empty();
-    
-  }
+    count = count-1;
+    console.log(count);
+    if (count <= 0) {
+        clearInterval(counter);
+        firstPage = false;
+    }
   $("#timer").text(count);
+  console.log(firstPage);
+
 }
 
 // Creating a JSON below for all of the answers. This will make it easy to access
@@ -92,7 +96,7 @@ var qaBlock = {
             answer3 = "Gandalf",
             answer4 = "Aragorn",
         ],
-        correctText: "Borimir arrives first, on horseback, with a round shield upon his back."
+        correctText: "Borimir arrives first, on horseback, with a round shield upon his back.",
         relatedGif: "<iframe src='https://giphy.com/embed/6j0CWwaTSVIBy' width='480' height='353' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
 
     },
@@ -189,44 +193,71 @@ var qaBlock = {
 // }            trying to use a function to append array items instead of having to write it out manually
 
 function displayPage() {
+    $(".container").empty();
     var title1 = "<h1>Question 1</h1>";
-    counter = setInterval(timer, 1000);
-    $("#mainMenu").css("display", "none");
     $(".container").append(triviaArea, row, col1, title1);
     $(".container").append("<div id='timer'>");
     timer();
+    counter = setInterval(timer, 1000);
+    firstPage = true;
 }
 
-$(".start").click(function() { 
+$(".start").click(function firstQuestion() { 
     displayPage();
-    $(".container").append("<div id='question1'>" + qaBlock.first.question1 + "</div>");
+    $("#mainMenu").css("display", "none");
+    $(".container").append("<div id='question'>" + qaBlock.first.question1 + "</div>");
     $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[0]);
     $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[1]);
     $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[2]);
     $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[3]);
 
 
-    $(".correct").click(function() {
+    $(".correct").click(function correct() {
         winLosePage();
         correctAnswers++;
-        console.log(correctAnswers, incorrectAnswers);
+        timer();
+        counter = setInterval(timer, 1000);
+        if (count <= 0 && firstPage == false) {
+            clearInterval(counter);
+            displayPage();
+            secondQuestion();
+        }
     });
 
-    $(".incorrect").click(function() {
+    $(".incorrect").click(function incorrect() {
         winLosePage();
         $("h1").text("That's wrong!");
         incorrectAnswers++;
-        console.log(correctAnswers, incorrectAnswers);
+        timer();
+        counter = setInterval(timer, 1000);
+        if (count <= 0 && firstPage == false) {
+            clearInterval(counter);
+            displayPage();
+            secondQuestion();
+        }
     })
 });
 
 //win/lose page function
 function winLosePage() {
     $(".container").empty();
+    count = 8;
     var triviaArea = "<div id='triviaArea'>";
     var correct = "<h1>Correct!</h1>";
     $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, qaBlock.first.relatedGif);
-
     clearInterval(counter);
+    console.log(firstPage);
 };
 
+
+
+// second question
+function secondQuestion() {
+    $("h1").text("Question 2");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.second.question2 + "</div>");
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.second.answers[0]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.second.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.second.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.second.answers[3]);
+};
