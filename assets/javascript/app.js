@@ -23,7 +23,7 @@ var row = "<div class='row'>";
 var col1 = "<div class='col-12'>";
 var triviaArea = "<div id='triviaArea'>";
 var count = 30;
-var counter = setInterval(timer, 1000);
+var counter;
 
 function timer() {
   count = count-1;
@@ -168,6 +168,7 @@ var qaBlock = {
 
 $(".start").click(function() { 
     var title1 = "<h1>Question 1</h1>";
+    counter = setInterval(timer, 1000);
     $("#mainMenu").css("display", "none");
     $(".container").append(triviaArea, row, col1, title1);
     $(".container").append("<div id='timer'>");
@@ -180,31 +181,26 @@ $(".start").click(function() {
 
 
     $(".correct").click(function() {
-        winPage();
+        winLosePage();
+        correctAnswers++;
+        console.log(correctAnswers, incorrectAnswers);
     });
 
     $(".incorrect").click(function() {
-        losePage();
+        winLosePage();
+        $("h1").text("That's wrong!");
+        incorrectAnswers++;
+        console.log(correctAnswers, incorrectAnswers);
     })
 });
 
-
-//win page function
-function winPage() {
+//win/lose page function
+function winLosePage() {
     $(".container").empty();
     var triviaArea = "<div id='triviaArea'>";
     var correct = "<h1>Correct!</h1>";
     $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, qaBlock.first.relatedGif);
-    correctAnswers++;
+
     clearInterval(counter);
 };
 
-//lose page function
-function losePage() {
-    $(".container").empty();
-    var triviaArea = "<div id='triviaArea'>";
-    var incorrect = "<h1>That's wrong!</h1>";
-    $(".container").append(triviaArea, row, col1, incorrect);
-    incorrectAnswers++;
-    clearInterval(counter);
-};
