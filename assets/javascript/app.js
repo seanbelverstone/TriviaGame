@@ -57,6 +57,8 @@ var qaBlock = {
             answer4 = "5",
         ],
         correctText: "'It began with the forging of the great rings: three were given to the Elves, immortal, wisest and fairest of all beings.'",
+        relatedGif: "<iframe src='https://giphy.com/embed/yxWgMeXtuqiHu' width='480' height='372' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     third: {
         question3: "During his birthday speech, which of the following families are NOT mentioned by Bilbo?",
@@ -67,6 +69,8 @@ var qaBlock = {
             answer4 = "The Cottons", //answer
         ],
         correctText: "Bilbo's exact words are 'My dear Bagginses and Boffins, Tooks and Brandybucks, Grubbs, Chubbs, Hornblowers, Bolgers, Bracegirdles and Proudfoots.'",
+        relatedGif: "<iframe src='https://giphy.com/embed/J35MhCksOhOxy' width='480' height='235' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     fourth: {
         question4: "Sam uses Sting to kill some Orcs. In which 'Lord Of The Rings' movie did this happen?",
@@ -76,7 +80,9 @@ var qaBlock = {
             answer3 = "Return of the King", //answer
             answer4 = "The Hobbit",
         ],
-        correctText: "Frodo dropped his sword after Shelob got him, and Sam used it to kill the Orcs who had taken Frodo.",
+        correctText: "Frodo dropped his sword after Shelob got him. Sam used it to fight Shelob and kill the Orcs who had taken Frodo.",
+        relatedGif: "<iframe src='https://giphy.com/embed/HqFVIIP3fmGbe' width='480' height='211' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     fifth: {
         question5: "Who do we see arrive first for the council of Elrond?",
@@ -87,6 +93,8 @@ var qaBlock = {
             answer4 = "Aragorn",
         ],
         correctText: "Borimir arrives first, on horseback, with a round shield upon his back."
+        relatedGif: "<iframe src='https://giphy.com/embed/6j0CWwaTSVIBy' width='480' height='353' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     sixth: {
         question6: "A flock of black birds, spies of Saruman, fly over the Fellowship. What sort of birds are they?",
@@ -97,6 +105,8 @@ var qaBlock = {
             answer4 = "Crebain", //answer
         ],
         correctText: "The Fellowship see the flock flying towards them and it is Legolas who exclaims, 'Crebain from Dunland.'",
+        relatedGif: "<iframe src='https://giphy.com/embed/OWN2yWTGPRc7m' width='480' height='480' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     seventh: {
         question7: "Who is the Lord of the Eagles?",
@@ -107,6 +117,8 @@ var qaBlock = {
             answer4 = "Landroval",
         ],
         correctText: "Lord of the Eagles was the title specifically reserved for Gwaihir the Windlord, who led the Eagles of Middle-earth as Thorondor went back to Valinor.",
+        relatedGif: "<iframe src='https://giphy.com/embed/TnMOoyQNLtaJa' width='480' height='197' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     eigth: {
         question8: "Who does Aragorn say he is a friend of during his first meeting with Boromir?",
@@ -117,6 +129,8 @@ var qaBlock = {
             answer4 = "Galadriel",
         ],
         correctText: "Boromir: Who are you? Aragorn: I'm a friend of Gandalf the Grey. Boromir: Then we are here on a common purpose... friend.",
+        relatedGif: "<iframe src='https://giphy.com/embed/13HHdPgxg2DAyc' width='480' height='200' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     ninth: {
         question9: "Whose tomb do the Fellowship visit whilst in Moria?",
@@ -127,6 +141,8 @@ var qaBlock = {
             answer4 = "Fili",
         ],
         correctText: "When they find the tomb in Moria, Gandalf translates the runes: 'Here lies Balin, son of Fundin, Lord of Moria. He is dead then. It's as I feared.'",
+        relatedGif: "<iframe src='https://giphy.com/embed/lDauPrcncnuIU' width='480' height='212' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     tenth: {
         question10: "Who is Sauron's master?",
@@ -137,6 +153,8 @@ var qaBlock = {
             answer4 = "Fëanor",
         ],
         correctText: "Sauron was Morgoth's lieutenant. Morgoth was previously known as Melkor.",
+        relatedGif: "<iframe src='https://giphy.com/embed/SzHIeJo1aVWog' width='480' height='200' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     eleventh: {
         question11: "In all three movies, how many times do we see the One Ring worn on Frodo's finger?",
@@ -147,6 +165,8 @@ var qaBlock = {
             answer4 = "8",
         ],
         correctText: "He first wears it in the Village of Bree, in the Inn of the Prancing Pony. Later, he wears it in Weathertop when the five Ringwraiths are after him. He wears it again at the end of the first movie while trying to get away from Boromir. He wears it for the last time in Mount Doom, as he succumbs to the Ring's pull.",
+        relatedGif: "<iframe src='https://giphy.com/embed/RcqAkSRf1H3bO' width='480' height='203' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
     twelfth: {
         question12: "Which of the following does Bilbo NOT mention as being loved by Hobbits?",
@@ -157,6 +177,8 @@ var qaBlock = {
             answer4 = "Dancing", //answer
         ],
         correctText: "The full quote reads: 'In fact, it has been remarked by some that the Hobbits' only real passion is for food. A rather unfair observation, as we have also developed a keen interest in the brewing of ales, and the smoking of pipe-weed. But where our hearts truly lie is in peace and quiet, and good tilled earth. For all Hobbits share a love of things that grow.",
+        relatedGif: "<iframe src='https://giphy.com/embed/ENlBwUH8VGRxK' width='480' height='244' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
+
     },
 }
 
@@ -166,13 +188,17 @@ var qaBlock = {
 //     }
 // }            trying to use a function to append array items instead of having to write it out manually
 
-$(".start").click(function() { 
+function displayPage() {
     var title1 = "<h1>Question 1</h1>";
     counter = setInterval(timer, 1000);
     $("#mainMenu").css("display", "none");
     $(".container").append(triviaArea, row, col1, title1);
     $(".container").append("<div id='timer'>");
     timer();
+}
+
+$(".start").click(function() { 
+    displayPage();
     $(".container").append("<div id='question1'>" + qaBlock.first.question1 + "</div>");
     $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[0]);
     $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[1]);
