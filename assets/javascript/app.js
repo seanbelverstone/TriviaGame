@@ -25,7 +25,7 @@ var triviaArea = "<div id='triviaArea'>";
 var counter;
 var count = 30;
 var pageBoolean = true; // set to true when on a question, set to false when on win/lose page to prevent errors
-var questionNumber = 1; // this will increment every time a win/lose page shows and will help trigger the next question
+var questionNumber = 0; // this will increment every time a win/lose page shows and will help trigger the next question
 // var setTimeout = setTimeout(function() {
 //     alert("Alert #1: Called automatically 1 second after page load.");
 //   }, 8000);
@@ -40,36 +40,34 @@ function timer() {
     if (count == 0 && pageBoolean == false) {
         clearInterval(counter);
         displayPage();
-        questionNumber++;
-        if (questionNumber == 2) { // this shows the relevant page corresponding with the question number
+        if (questionNumber === 2) { // this shows the relevant page corresponding with the question number
             secondQuestion();
-        } else if (questionNumber == 3) {
+        } else if (questionNumber === 3) {
             thirdQuestion();
-        } else if (questionNumber == 4) {
+        } else if (questionNumber === 4) {
             fourthQuestion();
-        } else if (questionNumber == 5) {
+        } else if (questionNumber === 5) {
             fifthQuestion();
-        } else if (questionNumber == 6) {
+        } else if (questionNumber === 6) {
             sixthQuestion();
-        } else if (questionNumber == 7) {
+        } else if (questionNumber === 7) {
             seventhQuestion();
-        } else if (questionNumber == 8) {
+        } else if (questionNumber === 8) {
             eighthQuestion();
-        } else if (questionNumber == 9) {
+        } else if (questionNumber === 9) {
             ninthQuestion();
-        } else if (questionNumber == 10) {
+        } else if (questionNumber === 10) {
             tenthQuestion();
-        } else if (questionNumber == 11) {
+        } else if (questionNumber === 11) {
             eleventhQuestion();
-        } else if (questionNumber == 12) {
+        } else if (questionNumber === 12) {
             twelfthQuestion();
-        } else if (questionNumber == 13) {
+        } else if (questionNumber === 13) {
             resultsPage();
         }
     } else if (count == 0 && pageBoolean == true) {
         timeOutPage();
     }
-    };
   $("#timer").text(count);
   console.log(pageBoolean);
 };
@@ -159,7 +157,7 @@ var qaBlock = {
         relatedGif: "<iframe src='https://giphy.com/embed/TnMOoyQNLtaJa' width='480' height='197' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
 
     },
-    eigth: {
+    eighth: {
         question8: "Who does Aragorn say he is a friend of during his first meeting with Boromir?",
         answers: [
             answer1 = "Gandalf", //answer
@@ -229,6 +227,7 @@ var qaBlock = {
 
 function displayPage() {
     $(".container").empty();
+    questionNumber++;
     var title1 = "<h1>Question 1</h1>";
     $(".container").append(triviaArea, row, col1, title1);
     $(".container").append("<div id='timer'>");
@@ -241,18 +240,18 @@ $(".start").click(function() {
     $("#mainMenu").css("display", "none");
     displayPage();
     firstQuestion();
+});
 
-    $(".correct").click(function correct() {
-        winLosePage();
-        correctAnswers++;
-    });
+$(document).on("click", ".correct", function correct() {
+    winLosePage();
+    correctAnswers++;
+});
 
-    $(".incorrect").click(function incorrect() {
-        winLosePage();
-        $("h1").text("That's wrong!");
-        incorrectAnswers++;
+$(document).on("click", ".incorrect", function correct() {
+    winLosePage();
+    $("h1").text("That's wrong!");
+    incorrectAnswers++;
 
-    });
 });
 
 //win/lose page function
@@ -262,14 +261,39 @@ function winLosePage() {
     var triviaArea = "<div id='triviaArea'>";
     var correct = "<h1>Correct!</h1>";
     clearInterval(counter);
-    $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, qaBlock.first.relatedGif);
     timer();
     count = 8;
     counter = setInterval(timer, 1000);
     console.log(pageBoolean);
+    if (questionNumber === 1) {  // if statement showing the correct text and related gif
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, qaBlock.first.relatedGif);
+    } else if (questionNumber === 2) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.second.correctText, qaBlock.second.relatedGif);
+    } else if (questionNumber === 3) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.third.correctText, qaBlock.third.relatedGif);
+    } else if (questionNumber === 4) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.fourth.correctText, qaBlock.fourth.relatedGif);
+    } else if (questionNumber === 5) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.fifth.correctText, qaBlock.fifth.relatedGif);
+    } else if (questionNumber === 6) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.sixth.correctText, qaBlock.sixth.relatedGif);
+    } else if (questionNumber === 7) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.seventh.correctText, qaBlock.seventh.relatedGif);
+    } else if (questionNumber === 8) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.eighth.correctText, qaBlock.eighth.relatedGif);
+    } else if (questionNumber === 9) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.ninth.correctText, qaBlock.ninth.relatedGif);
+    } else if (questionNumber === 10) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.tenth.correctText, qaBlock.tenth.relatedGif);
+    } else if (questionNumber === 11) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.eleventh.correctText, qaBlock.eleventh.relatedGif);
+    } else if (questionNumber === 12) {
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.twelfth.correctText, qaBlock.twelfth.relatedGif);
+    }
 };
 
 
+//functions for all the questions
 function firstQuestion() {
     $(".container").append("<div id='question'>" + qaBlock.first.question1 + "</div>");
     $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[0]);
@@ -287,4 +311,104 @@ function secondQuestion() {
     $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.second.answers[1]);
     $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.second.answers[2]);
     $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.second.answers[3]);
+};
+
+function thirdQuestion() {
+    $("h1").text("Question 3");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.third.question3 + "</div>");
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.third.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.third.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.third.answers[2]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.third.answers[3]);
+};
+
+function fourthQuestion() {
+    $("h1").text("Question 4");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.fourth.question4 + "</div>");
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.fourth.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.fourth.answers[1]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.fourth.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.fourth.answers[3]);
+};
+
+function fifthQuestion() {
+    $("h1").text("Question 5");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.fifth.question5 + "</div>");
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.fifth.answers[0]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.fifth.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.fifth.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.fifth.answers[3]);
+};
+
+function sixthQuestion() {
+    $("h1").text("Question 6");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.sixth.question6 + "</div>");
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.sixth.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.sixth.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.sixth.answers[2]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.sixth.answers[3]);
+};
+
+function seventhQuestion() {
+    $("h1").text("Question 7");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.seventh.question7 + "</div>");
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.seventh.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.seventh.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.seventh.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.seventh.answers[3]);
+};
+
+function eighthQuestion() {
+    $("h1").text("Question 8");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.eighth.question8 + "</div>");
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.eighth.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.eighth.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.eighth.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.eighth.answers[3]);
+};
+
+function ninthQuestion() {
+    $("h1").text("Question 9");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.ninth.question9 + "</div>");
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.ninth.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.ninth.answers[1]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.ninth.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.ninth.answers[3]);
+};
+
+function tenthQuestion() {
+    $("h1").text("Question 10");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.tenth.question10 + "</div>");
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.tenth.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.tenth.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.tenth.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.tenth.answers[3]);
+};
+
+function eleventhQuestion() {
+    $("h1").text("Question 11");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.eleventh.question11 + "</div>");
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.eleventh.answers[0]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.eleventh.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.eleventh.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.eleventh.answers[3]);
+};
+
+function twelfthQuestion() {
+    $("h1").text("Question 12");
+    count = 30;
+    $(".container").append("<div id='question'>" + qaBlock.twelfth.question12 + "</div>");
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.twelfth.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.twelfth.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.twelfth.answers[2]);
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.twelfth.answers[3]);
 };
