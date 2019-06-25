@@ -24,7 +24,8 @@ var col1 = "<div class='col-12'>";
 var triviaArea = "<div id='triviaArea'>";
 var counter;
 var count = 30;
-var pageBoolean = true;
+var pageBoolean = true; // set to true when on a question, set to false when on win/lose page to prevent errors
+var questionNumber = 1; // this will increment every time a win/lose page shows and will help trigger the next question
 // var setTimeout = setTimeout(function() {
 //     alert("Alert #1: Called automatically 1 second after page load.");
 //   }, 8000);
@@ -37,10 +38,37 @@ function timer() {
         clearInterval(counter);
     };
     if (count == 0 && pageBoolean == false) {
-        alert("yahoo");
         clearInterval(counter);
         displayPage();
-        secondQuestion();
+        questionNumber++;
+        if (questionNumber == 2) { // this shows the relevant page corresponding with the question number
+            secondQuestion();
+        } else if (questionNumber == 3) {
+            thirdQuestion();
+        } else if (questionNumber == 4) {
+            fourthQuestion();
+        } else if (questionNumber == 5) {
+            fifthQuestion();
+        } else if (questionNumber == 6) {
+            sixthQuestion();
+        } else if (questionNumber == 7) {
+            seventhQuestion();
+        } else if (questionNumber == 8) {
+            eighthQuestion();
+        } else if (questionNumber == 9) {
+            ninthQuestion();
+        } else if (questionNumber == 10) {
+            tenthQuestion();
+        } else if (questionNumber == 11) {
+            eleventhQuestion();
+        } else if (questionNumber == 12) {
+            twelfthQuestion();
+        } else if (questionNumber == 13) {
+            resultsPage();
+        }
+    } else if (count == 0 && pageBoolean == true) {
+        timeOutPage();
+    }
     };
   $("#timer").text(count);
   console.log(pageBoolean);
