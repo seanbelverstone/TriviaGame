@@ -24,7 +24,10 @@ var col1 = "<div class='col-12'>";
 var triviaArea = "<div id='triviaArea'>";
 var counter;
 var count = 30;
-var firstPage;
+var pageBoolean = true;
+// var setTimeout = setTimeout(function() {
+//     alert("Alert #1: Called automatically 1 second after page load.");
+//   }, 8000);
 
 
 function timer() {
@@ -32,12 +35,16 @@ function timer() {
     console.log(count);
     if (count <= 0) {
         clearInterval(counter);
-        firstPage = false;
-    }
+    };
+    if (count == 0 && pageBoolean == false) {
+        alert("yahoo");
+        clearInterval(counter);
+        displayPage();
+        secondQuestion();
+    };
   $("#timer").text(count);
-  console.log(firstPage);
-
-}
+  console.log(pageBoolean);
+};
 
 // Creating a JSON below for all of the answers. This will make it easy to access
 var qaBlock = {
@@ -199,57 +206,49 @@ function displayPage() {
     $(".container").append("<div id='timer'>");
     timer();
     counter = setInterval(timer, 1000);
-    firstPage = true;
+    pageBoolean = true;
 }
 
-$(".start").click(function firstQuestion() { 
-    displayPage();
+$(".start").click(function() { 
     $("#mainMenu").css("display", "none");
-    $(".container").append("<div id='question'>" + qaBlock.first.question1 + "</div>");
-    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[0]);
-    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[1]);
-    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[2]);
-    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[3]);
-
+    displayPage();
+    firstQuestion();
 
     $(".correct").click(function correct() {
         winLosePage();
         correctAnswers++;
-        timer();
-        counter = setInterval(timer, 1000);
-        if (count <= 0 && firstPage == false) {
-            clearInterval(counter);
-            displayPage();
-            secondQuestion();
-        }
     });
 
     $(".incorrect").click(function incorrect() {
         winLosePage();
         $("h1").text("That's wrong!");
         incorrectAnswers++;
-        timer();
-        counter = setInterval(timer, 1000);
-        if (count <= 0 && firstPage == false) {
-            clearInterval(counter);
-            displayPage();
-            secondQuestion();
-        }
-    })
+
+    });
 });
 
 //win/lose page function
 function winLosePage() {
     $(".container").empty();
-    count = 8;
+    pageBoolean = false;
     var triviaArea = "<div id='triviaArea'>";
     var correct = "<h1>Correct!</h1>";
-    $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, qaBlock.first.relatedGif);
     clearInterval(counter);
-    console.log(firstPage);
+    $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, qaBlock.first.relatedGif);
+    timer();
+    count = 8;
+    counter = setInterval(timer, 1000);
+    console.log(pageBoolean);
 };
 
 
+function firstQuestion() {
+    $(".container").append("<div id='question'>" + qaBlock.first.question1 + "</div>");
+    $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[0]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[1]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[2]);
+    $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[3]);
+};
 
 // second question
 function secondQuestion() {
