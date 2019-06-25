@@ -10,6 +10,7 @@ If the incorrect answer was selected, the same page shows but 'Well done!' is re
 When all questions have been completed, a results page shows with incorrect and correct answer counters.
 Also have rankings for how well you did, for example:
     'You're a true member of the Fellowship'
+    '"The salted pork is especially good." Feast on your near victory!
     'You nearly made it, but Sam had to carry you the rest of the way'
     'Half isn't bad! At least you made it further than Borimir'
     'Send for the eagles! You need saving from your bad score!'
@@ -19,6 +20,7 @@ again */
 
 var correctAnswers = 0;
 var incorrectAnswers = 0;
+var unanswered = 0;
 var row = "<div class='row'>";
 var col1 = "<div class='col-12'>";
 var triviaArea = "<div id='triviaArea'>";
@@ -254,6 +256,14 @@ $(document).on("click", ".incorrect", function correct() {
 
 });
 
+function timeOutPage() {
+    if (count == 0 && pageBoolean == true) {
+    winLosePage();
+    $("h1").text("Time's up!");
+    unanswered++;
+    }
+}
+
 //win/lose page function
 function winLosePage() {
     $(".container").empty();
@@ -302,7 +312,6 @@ function firstQuestion() {
     $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.first.answers[3]);
 };
 
-// second question
 function secondQuestion() {
     $("h1").text("Question 2");
     count = 30;
@@ -412,3 +421,33 @@ function twelfthQuestion() {
     $(".container").append("<button type='button' class='incorrect btn btn-danger btn-lg btn-block'>" + qaBlock.twelfth.answers[2]);
     $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.twelfth.answers[3]);
 };
+
+function resultsPage() {
+    $("#timer").empty();
+    $("h1").text("You're all done!");
+    $(".container").append("<div>Correct Answers: " + correctAnswers + "</div>");
+    $(".container").append("<div>Incorrect Answers: " + incorrectAnswers + "</div>");
+    $(".container").append("<div>Unanswered Questions: " + unanswered + "</div>");
+    if (correctAnswers === 12) {
+        $(".container").append("<div>'A perfect score! You're a true member of the Fellowship'/</div>");
+    } else if (correctAnswers === 11) {
+        $(".container").append("<div>'The salted pork is especially good. Feast on your near victory!'/</div>");
+    } else if (correctAnswers === 10 || 9 || 8) {
+        $(".container").append("<div>'You nearly made it, but Sam had to carry you the rest of the way'/</div>");
+    } else if (correctAnswers === 7 || 6 || 5) {
+        $(".container").append("<div>'You're getting there! At least you made it further than Borimir'/</div>");
+    } else if (correctAnswers === 4 || 3 || 2) {
+        $(".container").append("<div>'Send for the eagles! You need saving from your bad score!'/</div>");
+    } else if (correctAnswers <= 1) {
+        $(".container").append("<div>'One does not simply walk into Mordor.'/</div>");
+    }
+    $(".container").append("<button type='button' class='btn btn-warning btn-lg btn-block'>Continue?</div>");
+}
+
+/*
+'You're a true member of the Fellowship' 12
+'"The salted pork is especially good." Feast on your near victory! 11
+'You nearly made it, but Sam had to carry you the rest of the way' 8 - 10
+'Half isn't bad! At least you made it further than Borimir' 5 - 7
+'Send for the eagles! You need saving from your bad score!' 2 - 4
+'One does not simply walk into Mordor.' 0 - 1*/
