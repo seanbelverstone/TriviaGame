@@ -128,7 +128,7 @@ var qaBlock = {
         question5: "Who do we see arrive first for the council of Elrond?",
         answers: [
             answer1 = "Legolas",
-            answer2 = "Borimir", //answer
+            answer2 = "Boromir", //answer
             answer3 = "Gandalf",
             answer4 = "Aragorn",
         ],
@@ -149,7 +149,7 @@ var qaBlock = {
 
     },
     seventh: {
-        question7: "Who is the Lord of the Eagles?",
+        question7: "Who is the Lord of the Eagles? (Book Question, Haha!)",
         answers: [
             answer1 = "Gwaihir", //answer
             answer2 = "Elrond",
@@ -453,7 +453,7 @@ function resultsPage() {
     } else if ((correctAnswers === 10) || (correctAnswers === 9) || (correctAnswers === 8)) {
         $(".container").append("<div>'You nearly made it, but Sam had to carry you the rest of the way'</div>");
     } else if ((correctAnswers === 7) || (correctAnswers === 6) || (correctAnswers === 5)) {
-        $(".container").append("<div>'You're getting there! At least you made it further than Borimir'</div>");
+        $(".container").append("<div>'You're getting there! At least you made it further than Boromir'</div>");
     } else if ((correctAnswers === 4) || (correctAnswers === 3) || (correctAnswers === 2)) {
         $(".container").append("<div>'Send for the eagles! You need saving from your bad score!'</div>");
     } else if (correctAnswers <= 1) {
