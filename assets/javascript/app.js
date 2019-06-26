@@ -276,41 +276,41 @@ function winLosePage() {
     counter = setInterval(timer, 1000);
     console.log(pageBoolean);
     if (questionNumber === 1) {  // if statement showing the correct text and related gif
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, col1, qaBlock.first.relatedGif);
-        qaBlock.first.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.first.correctText, col1, qaBlock.first.relatedGif);
     } else if (questionNumber === 2) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.second.correctText, col1, qaBlock.second.relatedGif);
-        qaBlock.second.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.second.correctText, col1, qaBlock.second.relatedGif);
     } else if (questionNumber === 3) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.third.correctText, col1, qaBlock.third.relatedGif);
-        qaBlock.third.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.third.correctText, col1, qaBlock.third.relatedGif);
     } else if (questionNumber === 4) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.fourth.correctText, col1, qaBlock.fourth.relatedGif);
-        qaBlock.fourth.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.fourth.correctText, col1, qaBlock.fourth.relatedGif);
     } else if (questionNumber === 5) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.fifth.correctText, col1, qaBlock.fifth.relatedGif);
-        qaBlock.fifth.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.fifth.correctText, col1, qaBlock.fifth.relatedGif);
     } else if (questionNumber === 6) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.sixth.correctText, col1, qaBlock.sixth.relatedGif);
-        qaBlock.sixth.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.sixth.correctText, col1, qaBlock.sixth.relatedGif);
     } else if (questionNumber === 7) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.seventh.correctText, col1, qaBlock.seventh.relatedGif);
-        qaBlock.seventh.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.seventh.correctText, col1, qaBlock.seventh.relatedGif);
     } else if (questionNumber === 8) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.eighth.correctText, col1, qaBlock.eighth.relatedGif);
-        qaBlock.eighth.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.eighth.correctText, col1, qaBlock.eighth.relatedGif);
     } else if (questionNumber === 9) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.ninth.correctText, col1, qaBlock.ninth.relatedGif);
-        qaBlock.ninth.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.ninth.correctText, col1, qaBlock.ninth.relatedGif);
     } else if (questionNumber === 10) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.tenth.correctText, col1, qaBlock.tenth.relatedGif);
-        qaBlock.tenth.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.tenth.correctText, col1, qaBlock.tenth.relatedGif);
     } else if (questionNumber === 11) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.eleventh.correctText, col1, qaBlock.eleventh.relatedGif);
-        qaBlock.eleventh.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.eleventh.correctText, col1, qaBlock.eleventh.relatedGif);
     } else if (questionNumber === 12) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.twelfth.correctText, col1, qaBlock.twelfth.relatedGif);
-        qaBlock.twelfth.correctText.attr("class", "correctText");
+        $(".container").append("<div class='answer'>");
+        $(".answer").append(triviaArea, row, col1, correct, qaBlock.twelfth.correctText, col1, qaBlock.twelfth.relatedGif);
     }
 };
 
