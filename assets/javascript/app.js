@@ -117,7 +117,7 @@ var qaBlock = {
             answer1 = "The Fellowship of the Ring",
             answer2 = "The Two Towers",
             answer3 = "Return of the King", //answer
-            answer4 = "The Hobbit",
+            answer4 = "None of them",
         ],
         correctText: "Frodo dropped his sword after Shelob got him. Sam used it to fight Shelob and kill the Orcs who had taken Frodo.",
         relatedGif: "<iframe src='https://giphy.com/embed/HqFVIIP3fmGbe' width='480' height='211' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
@@ -221,12 +221,8 @@ var qaBlock = {
     },
 }
 
-// function setAnswers() {
-//     for (var i = 0; i < Array.length; i++) {
-//         $("ul").append("<li>" + Array[i] + "</li>");
-//     }
-// }            trying to use a function to append array items instead of having to write it out manually
 
+//preps the container for questions
 function displayPage() {
     $(".container").empty();
     questionNumber++;
@@ -238,17 +234,20 @@ function displayPage() {
     pageBoolean = true;
 }
 
+//starting button
 $(".start").click(function() { 
     $("#mainMenu").css("display", "none");
     displayPage();
     firstQuestion();
 });
 
+//on correct answer click
 $(document).on("click", ".correct", function correct() {
     winLosePage();
     correctAnswers++;
 });
 
+//on incorrect answer click
 $(document).on("click", ".incorrect", function correct() {
     winLosePage();
     $("h1").text("That's wrong!");
@@ -256,6 +255,7 @@ $(document).on("click", ".incorrect", function correct() {
 
 });
 
+//question time out page
 function timeOutPage() {
     if (count == 0 && pageBoolean == true) {
     winLosePage();
@@ -276,29 +276,41 @@ function winLosePage() {
     counter = setInterval(timer, 1000);
     console.log(pageBoolean);
     if (questionNumber === 1) {  // if statement showing the correct text and related gif
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, qaBlock.first.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.first.correctText, col1, qaBlock.first.relatedGif);
+        qaBlock.first.correctText.attr("class", "correctText");
     } else if (questionNumber === 2) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.second.correctText, qaBlock.second.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.second.correctText, col1, qaBlock.second.relatedGif);
+        qaBlock.second.correctText.attr("class", "correctText");
     } else if (questionNumber === 3) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.third.correctText, qaBlock.third.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.third.correctText, col1, qaBlock.third.relatedGif);
+        qaBlock.third.correctText.attr("class", "correctText");
     } else if (questionNumber === 4) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.fourth.correctText, qaBlock.fourth.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.fourth.correctText, col1, qaBlock.fourth.relatedGif);
+        qaBlock.fourth.correctText.attr("class", "correctText");
     } else if (questionNumber === 5) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.fifth.correctText, qaBlock.fifth.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.fifth.correctText, col1, qaBlock.fifth.relatedGif);
+        qaBlock.fifth.correctText.attr("class", "correctText");
     } else if (questionNumber === 6) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.sixth.correctText, qaBlock.sixth.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.sixth.correctText, col1, qaBlock.sixth.relatedGif);
+        qaBlock.sixth.correctText.attr("class", "correctText");
     } else if (questionNumber === 7) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.seventh.correctText, qaBlock.seventh.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.seventh.correctText, col1, qaBlock.seventh.relatedGif);
+        qaBlock.seventh.correctText.attr("class", "correctText");
     } else if (questionNumber === 8) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.eighth.correctText, qaBlock.eighth.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.eighth.correctText, col1, qaBlock.eighth.relatedGif);
+        qaBlock.eighth.correctText.attr("class", "correctText");
     } else if (questionNumber === 9) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.ninth.correctText, qaBlock.ninth.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.ninth.correctText, col1, qaBlock.ninth.relatedGif);
+        qaBlock.ninth.correctText.attr("class", "correctText");
     } else if (questionNumber === 10) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.tenth.correctText, qaBlock.tenth.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.tenth.correctText, col1, qaBlock.tenth.relatedGif);
+        qaBlock.tenth.correctText.attr("class", "correctText");
     } else if (questionNumber === 11) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.eleventh.correctText, qaBlock.eleventh.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.eleventh.correctText, col1, qaBlock.eleventh.relatedGif);
+        qaBlock.eleventh.correctText.attr("class", "correctText");
     } else if (questionNumber === 12) {
-        $(".container").append(triviaArea, row, col1, correct, qaBlock.twelfth.correctText, qaBlock.twelfth.relatedGif);
+        $(".container").append(triviaArea, row, col1, correct, qaBlock.twelfth.correctText, col1, qaBlock.twelfth.relatedGif);
+        qaBlock.twelfth.correctText.attr("class", "correctText");
     }
 };
 
@@ -422,6 +434,7 @@ function twelfthQuestion() {
     $(".container").append("<button type='button' class='correct btn btn-danger btn-lg btn-block'>" + qaBlock.twelfth.answers[3]);
 };
 
+//page for results
 function resultsPage() {
     $("#timer").empty();
     $("h1").text("You're all done!");
@@ -429,25 +442,28 @@ function resultsPage() {
     $(".container").append("<div>Incorrect Answers: " + incorrectAnswers + "</div>");
     $(".container").append("<div>Unanswered Questions: " + unanswered + "</div>");
     if (correctAnswers === 12) {
-        $(".container").append("<div>'A perfect score! You're a true member of the Fellowship'/</div>");
+        $(".container").append("<div>'A perfect score! You're a true member of the Fellowship'</div>");
     } else if (correctAnswers === 11) {
-        $(".container").append("<div>'The salted pork is especially good. Feast on your near victory!'/</div>");
+        $(".container").append("<div>'The salted pork is especially good. Feast on your near victory!'</div>");
     } else if (correctAnswers === 10 || 9 || 8) {
-        $(".container").append("<div>'You nearly made it, but Sam had to carry you the rest of the way'/</div>");
+        $(".container").append("<div>'You nearly made it, but Sam had to carry you the rest of the way'</div>");
     } else if (correctAnswers === 7 || 6 || 5) {
-        $(".container").append("<div>'You're getting there! At least you made it further than Borimir'/</div>");
+        $(".container").append("<div>'You're getting there! At least you made it further than Borimir'</div>");
     } else if (correctAnswers === 4 || 3 || 2) {
-        $(".container").append("<div>'Send for the eagles! You need saving from your bad score!'/</div>");
+        $(".container").append("<div>'Send for the eagles! You need saving from your bad score!'</div>");
     } else if (correctAnswers <= 1) {
         $(".container").append("<div>'One does not simply walk into Mordor.'/</div>");
     }
-    $(".container").append("<button type='button' class='btn btn-warning btn-lg btn-block'>Continue?</div>");
-}
-
-/*
-'You're a true member of the Fellowship' 12
-'"The salted pork is especially good." Feast on your near victory! 11
-'You nearly made it, but Sam had to carry you the rest of the way' 8 - 10
-'Half isn't bad! At least you made it further than Borimir' 5 - 7
-'Send for the eagles! You need saving from your bad score!' 2 - 4
-'One does not simply walk into Mordor.' 0 - 1*/
+    $(".container").append("<button type='button' id='retry' class='btn btn-warning btn-lg btn-block'>Play again?</button>");
+    //retry button on results page
+    $("#retry").on("click", function reset() {
+        $("#timer").empty();
+        count = 30;
+        correctAnswers = 0;
+        incorrectAnswers = 0;
+        unanswered = 0;
+        questionNumber = 0;
+        displayPage();
+        firstQuestion();
+});
+};
