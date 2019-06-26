@@ -66,11 +66,12 @@ function timer() {
             twelfthQuestion();
         } else if (questionNumber === 13) {
             resultsPage();
+            $("#timer").empty();
         }
     } else if (count == 0 && pageBoolean == true) {
         timeOutPage();
     }
-  $("#timer").text(count);
+  $("#timer").text("Time Left: " + count);
   console.log(pageBoolean);
 };
 
@@ -119,7 +120,7 @@ var qaBlock = {
             answer3 = "Return of the King", //answer
             answer4 = "None of them",
         ],
-        correctText: "Frodo dropped his sword after Shelob got him. Sam used it to fight Shelob and kill the Orcs who had taken Frodo.",
+        correctText: "In 'The Return of The King', Frodo drops his sword after Shelob gets him. Sam uses it to fight Shelob and kill the Orcs who had taken Frodo.",
         relatedGif: "<iframe src='https://giphy.com/embed/HqFVIIP3fmGbe' width='480' height='211' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>",
 
     },
@@ -229,9 +230,11 @@ function displayPage() {
     var title1 = "<h1>Question 1</h1>";
     $(".container").append(triviaArea, row, col1, title1);
     $(".container").append("<div id='timer'>");
-    timer();
-    counter = setInterval(timer, 1000);
     pageBoolean = true;
+    if (questionNumber != 13) {
+        timer();
+        counter = setInterval(timer, 1000);
+    }
 }
 
 //starting button
@@ -311,6 +314,8 @@ function winLosePage() {
     } else if (questionNumber === 12) {
         $(".container").append("<div class='answer'>");
         $(".answer").append(triviaArea, row, col1, correct, qaBlock.twelfth.correctText, col1, qaBlock.twelfth.relatedGif);
+    } else {
+        $("#timer").empty();
     }
 };
 
@@ -436,7 +441,7 @@ function twelfthQuestion() {
 
 //page for results
 function resultsPage() {
-    $("#timer").empty();
+    clearInterval(counter);
     $("h1").text("You're all done!");
     $(".container").append("<div>Correct Answers: " + correctAnswers + "</div>");
     $(".container").append("<div>Incorrect Answers: " + incorrectAnswers + "</div>");
@@ -445,19 +450,18 @@ function resultsPage() {
         $(".container").append("<div>'A perfect score! You're a true member of the Fellowship'</div>");
     } else if (correctAnswers === 11) {
         $(".container").append("<div>'The salted pork is especially good. Feast on your near victory!'</div>");
-    } else if (correctAnswers === 10 || 9 || 8) {
+    } else if ((correctAnswers === 10) || (correctAnswers === 9) || (correctAnswers === 8)) {
         $(".container").append("<div>'You nearly made it, but Sam had to carry you the rest of the way'</div>");
-    } else if (correctAnswers === 7 || 6 || 5) {
+    } else if ((correctAnswers === 7) || (correctAnswers === 6) || (correctAnswers === 5)) {
         $(".container").append("<div>'You're getting there! At least you made it further than Borimir'</div>");
-    } else if (correctAnswers === 4 || 3 || 2) {
+    } else if ((correctAnswers === 4) || (correctAnswers === 3) || (correctAnswers === 2)) {
         $(".container").append("<div>'Send for the eagles! You need saving from your bad score!'</div>");
     } else if (correctAnswers <= 1) {
-        $(".container").append("<div>'One does not simply walk into Mordor.'/</div>");
+        $(".container").append("<div>'One does not simply walk into Mordor.'</div>");
     }
     $(".container").append("<button type='button' id='retry' class='btn btn-warning btn-lg btn-block'>Play again?</button>");
     //retry button on results page
     $("#retry").on("click", function reset() {
-        $("#timer").empty();
         count = 30;
         correctAnswers = 0;
         incorrectAnswers = 0;
