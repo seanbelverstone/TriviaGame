@@ -28,9 +28,6 @@ var counter;
 var count = 30;
 var pageBoolean = true; // set to true when on a question, set to false when on win/lose page to prevent errors
 var questionNumber = 0; // this will increment every time a win/lose page shows and will help trigger the next question
-// var setTimeout = setTimeout(function() {
-//     alert("Alert #1: Called automatically 1 second after page load.");
-//   }, 8000);
 
 
 function timer() {
