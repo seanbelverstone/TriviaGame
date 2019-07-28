@@ -75,7 +75,7 @@ function timer() {
 // Creating a JSON below for all of the answers. This will make it easy to access
 var qaBlock = {
     first: {
-        question1: "Who is Gollum's brother?",
+        question1: "Who is Gollum's cousin?",
         answers: [
             answer1 = "Deagol", //answer
             answer2 = "Grima",
